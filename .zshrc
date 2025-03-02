@@ -1,7 +1,8 @@
-PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-# PATH="/usr/local/opt/bison/bin:$PATH"
+# PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH
-source ~/.bash_profile
+#source ~/.bash_profile
+source ~/.bashrc
 
 # history setup
 HISTFILE=$HOME/.zhistory
@@ -15,19 +16,26 @@ setopt hist_verify
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
 
 # ---- Eza (better ls) and  ---- Zoxide (better cd) ---- -----
 eval "$(zoxide init zsh)"
 alias ls="eza --icons=always"
-alias lvim="/Users/erbivore/.local/bin/lvim"
+# alias lvim="/Users/erbivore/.local/bin/lvim"
 # ---- Zoxide (better cd) ----
-
+alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 alias cd="z"
 
 # This alias reloads this file
-alias reload_profile='. ~/.bash_profile'
-alias bison="$(brew --prefix bison)/bin/bison"
-export PATH="$(brew --prefix bison)/bin:$PATH"
+alias reload_profile='. ~/.bashrc'
+#alias reload_profile='. ~/.bash_profile'
+# alias bison="$(brew --prefix bison)/bin/bison"
+# export PATH="$(brew --prefix bison)/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
