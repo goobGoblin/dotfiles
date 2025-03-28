@@ -4,3 +4,4 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 # Install flatpak apps
 flatpak install flathub md.obsidian.Obsidian
+flatpak install flathub org.wezfurlong.wezterm
