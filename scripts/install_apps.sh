@@ -15,4 +15,6 @@ bash install_dev.sh
 # Install vim and neovim
 bash install_vim.sh
 
+bash init_stow.sh
 
+bash install_tmux.sh
