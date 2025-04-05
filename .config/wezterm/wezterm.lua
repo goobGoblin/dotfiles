@@ -6,7 +6,13 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'Chalkboard'
+config.colors = {
+  background = '#000000',
+  foreground = '#9F90CF'
+}
+
+
 
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.font_size = 15
@@ -16,10 +22,10 @@ config.window_background_opacity = 0.75
 
 config.window_decorations = "RESIZE"
 
--- config.macos_window_background_blur = 10
+-- config.window_background_blur = 10
 
 -- keymaps
-config.keys = {	
+config.keys = {
 	{
 		key = "h",
 		mods = "CTRL|SHIFT|ALT",
@@ -65,7 +71,7 @@ config.keys = {
 		action = wezterm.action_callback(function(window, _)
 			local overrides = window:get_config_overrides() or {}
 			if overrides.window_background_opacity == 0.75 then
-				overrides.window_background_opacity = 1.00
+				overrides.window_background_opacity = 0.9
 			else
 				overrides.window_background_opacity = 0.75
 			end

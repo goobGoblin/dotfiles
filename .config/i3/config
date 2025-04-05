@@ -10,7 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1 
-exec --no-startup-id picom
+
+exec --no-startup-id picom 
 exec --no-startup-id xrandr --output DP-3 --above DP-4
 exec --no-startup-id feh --bg-scale '/home/tofu/Pictures/Screensavers/Flower V1.png'
 
@@ -186,3 +187,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #9F90CF #9F90CF #ffffff #9F90CF   #9F90CF
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
