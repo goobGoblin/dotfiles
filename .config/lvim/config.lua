@@ -17,9 +17,24 @@ lvim.keys.normal_mode["<leader>c"] = false
 -- Map leader+x to close buffer
 lvim.keys.normal_mode["<leader>x"] = ":BufferKill<CR>"
 
+-- Add mappings to toggle which-key
+lvim.keys.normal_mode["<leader>yk"] = "<cmd>lua require('which-key').disable()<CR>"
+lvim.keys.normal_mode["<leader>yk"] = "<cmd>lua require('which-key').enable()<CR>"
+
+-- Alternatively, you can also add a single toggle command
+lvim.keys.normal_mode["<leader>wt"] = "<cmd>lua require('which-key').toggle()<CR>"
+
+-- Bufferline keymaps
+lvim.keys.normal_mode["<leader><"] = "<cmd>BufferLineMovePrev<CR>"
+lvim.keys.normal_mode["<leader>>"] = "<cmd>BufferLineMoveNext<CR>"
+
+-- Paste and delete without copying deletion
+lvim.keys.visual_mode["<leader>p"] = "\"_dP"
+
 -- Add keymappings for tab navigation by number (1-9)
 for i = 1, 9 do
-  lvim.keys.normal_mode["<leader>" .. i] = i .. "gt"
+  lvim.keys.normal_mode["<leader>" .. i] = string.format(":lua require('nvim-smartbufs').goto_buffer(%d)<CR>", i)
+  lvim.keys.normal_mode["<leader>q" .. i] = string.format(":lua require('nvim-smartbufs').close_buffer(%d)<CR>", i)
 end
 
 lvim.plugins = {
@@ -70,7 +85,30 @@ lvim.plugins = {
   {
     "pasky/claude.vim",
     lazy = false,
-  }
+  },
+  {
+    "johann2357/nvim-smartbufs",
+    lazy = false,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    lazy = false,
+    config = function()
+      require("bufferline").setup {
+        options = {
+          numbers = "ordinal", -- show buffer index (1, 2, 3...) matching :ls
+          diagnostics = "nvim_lsp", -- optional: shows LSP diagnostics
+          show_buffer_close_icons = true,
+          show_close_icon = false,
+        },
+      }
+      -- Enable the bufferline
+      vim.opt.termguicolors = true
+      vim.opt.showtabline = 2
+    end,
+  },
 }
 
 local api_keys = {}

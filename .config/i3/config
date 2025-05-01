@@ -63,6 +63,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindsym $mod+space exec rofi -show combi
 
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down

@@ -62,7 +62,78 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = act.AdjustPaneSize({ "Right", 5 }),
 	},
-	{ key = "9", mods = "CTRL", action = act.PaneSelect },
+  {
+      key = "1",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "1", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "2",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "2", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "3",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "3", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "4",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "4", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "5",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "5", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "6",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "6", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "7",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "7", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "8",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "8", 
+        mods = "CTRL",
+      },
+  },
+  {
+      key = "9",
+      mods = "CTRL",
+      action = wezterm.action.SendKey{
+        key = "9", 
+        mods = "CTRL",
+      },
+  },
 	{ key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
 	{
 		key = "O",
