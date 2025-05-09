@@ -98,6 +98,42 @@ alias l='ls -CF'
 alias notes='flatpak run md.obsidian.Obsidian'
 alias android='~/development/android-studio/bin/studio'
 
+# Search in zoxide directories with ripgrep and fzf
+fz() {
+  if [ -z "$1" ]; then
+    echo "Usage: fz <search_term>"
+    return 1
+  fi
+  
+  # Get list of directories from zoxide
+  local dirs=$(zoxide query -l)
+  
+  # Allow user to select a directory with fzf
+  local selected_dir=$(echo "$dirs" | fzf --prompt "Choose directory: ")
+  
+  if [ -z "$selected_dir" ]; then
+    echo "No directory selected"
+    return 1
+  fi
+  
+  echo "Searching for '$1' in $selected_dir"
+  
+  # Search in the selected directory using ripgrep and fzf
+  local result=$(rg --line-number --no-heading --color=always --smart-case "$1" "$selected_dir" 2>/dev/null |
+                fzf --ansi \
+                    --delimiter : \
+                    --preview 'bat --style=numbers --color=always --highlight-line {2} {1} 2>/dev/null || 
+                               cat {1} | head -500' \
+                    --preview-window '+{2}-/2')
+  
+  if [ -n "$result" ]; then
+    local file=$(echo "$result" | cut -d':' -f1)
+    local line=$(echo "$result" | cut -d':' -f2)
+    # Open in your preferred editor
+    ${EDITOR:-vim} +$line "$file"
+  fi
+}
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -150,9 +186,9 @@ function sesh-sessions() {
   fi
 }
 
-# Add keybinding for ctrl-f
+# Add keybinding for ctrl-t
 if [[ -n "$BASH_VERSION" ]]; then
-  bind -x '"\C-f": "sesh-sessions"'
+  bind -x '"\C-t": "sesh-sessions"'
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
