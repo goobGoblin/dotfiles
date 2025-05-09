@@ -122,7 +122,46 @@ if ! shopt -oq posix; then
 fi
 eval "$(zoxide init bash)"
 
+# Enhanced Sesh session selector for Bash
+function sesh-sessions() {
+  # Use full path to sesh
+  local SESH_PATH="/home/tofu/go/bin/sesh"
+  local session
+  
+  # Temporarily move to a new line for a cleaner fzf experience
+  echo
+  
+  # Get session selection with more options
+  session=$($SESH_PATH list -t -c | fzf --height 40% --reverse --border-label ' sesh ' \
+    --border --prompt '⚡  ' \
+    --header '  ^a all ^t tmux ^g configs ^x zoxide' \
+    --bind 'ctrl-a:reload('$SESH_PATH' list)' \
+    --bind 'ctrl-t:reload('$SESH_PATH' list -t)' \
+    --bind 'ctrl-g:reload('$SESH_PATH' list -c)' \
+    --bind 'ctrl-x:reload('$SESH_PATH' list -z)')
+  
+  # Redraw prompt properly
+  printf "\e[1A\e[K"
+  
+  # If a session was selected, connect to it
+  if [[ -n "$session" ]]; then
+    $SESH_PATH connect "$session"
+  fi
+}
+
+# Add keybinding for ctrl-f
+if [[ -n "$BASH_VERSION" ]]; then
+  bind -x '"\C-f": "sesh-sessions"'
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# add sesh to tmux path
+# Ensure tmux sees the Go bin directory
+if [[ -n $TMUX ]]; then
+  export PATH="$HOME/go/bin:$PATH"
+fi
 
 export PATH="$PATH:$HOME/development/flutter/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"

@@ -1,7 +1,9 @@
+#######################################################################################
 # install lib dependencies
-apt install cargo rustup
+apt install cargo rustup golang-go
 # update rust dependencies
 rustup update stable
+#######################################################################################
 
 # add nerd fonts
 mkdir -p ~/.local/share/fonts
