@@ -1,15 +1,17 @@
 configuration{
-    modi: "run,window,combi";
+    modi: "combi,drun,run,window";
     icon-theme: "Oranchelo";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-combi: " 🖥️  All ";
-    display-run: " 🏃  Run ";
-    display-window: " 🪟  Window";
+    display-combi: "🖥️ All";
+    display-drun: "🧩 App";
+    display-run: "🧪 Run";
+    display-window: "🔲  Window";
     sidebar-mode: true;
 }
 
+@theme "/home/tofu/.local/share/rofi/themes/rounded-template.rasi"

@@ -109,6 +109,10 @@ lvim.plugins = {
       vim.opt.showtabline = 2
     end,
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = false,
+  },
 }
 
 local api_keys = {}

@@ -1,0 +1,11 @@
+@theme "~/.local/share/rofi/themes/material-you/material-colors.rasi"
+* {
+    bg0:    @secondary-fixed;
+    bg1:    @secondary-fixed-dim;
+    bg2:    #3D3D3D80;
+    bg3:    @primary;
+    fg0:    @on-primary;
+    fg1:    @on-primary;
+    fg2:    @on-primary; 
+    fg3:    @inverse-primary;
+}

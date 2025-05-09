@@ -1,0 +1,12 @@
+[config]
+version_check = false
+
+[config.wallpaper]
+set = true
+command = "feh"
+arguments = ["--bg-scale"]
+
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.local/share/rofi/themes/material-you/material-colors.rasi' 
