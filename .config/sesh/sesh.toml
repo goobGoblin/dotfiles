@@ -1,0 +1,5 @@
+[[session]]
+name = "tmux config"
+path = "~/dotfiles/.config/tmux"
+startup_command = "lvim tmux.conf"
+preview_command = "bat ~/dotfiles/.config/tmux/tmux.conf"
