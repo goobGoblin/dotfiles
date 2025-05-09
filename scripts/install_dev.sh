@@ -1,5 +1,6 @@
 # install dev tools
 apt install git zoxide tmux vim stow xdotool fzf fd-find bat ripgrep
+cargo install starship
 # link fd-find
 ln -s $(which fdfind) ~/.local/bin/fd
 # install sesh to manage tmux sessions

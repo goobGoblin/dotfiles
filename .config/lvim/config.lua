@@ -115,6 +115,8 @@ lvim.plugins = {
   },
 }
 
+require'colorizer'.setup()
+
 local api_keys = {}
 local api_keys_path = vim.fn.expand("~/.config/lvim/api_keys.lua")
 

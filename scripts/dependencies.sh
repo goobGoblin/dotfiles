@@ -7,5 +7,10 @@ rustup update stable
 
 # add nerd fonts
 mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+cd ~/.local/share/fonts
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+bash install.sh JetBrainsMono
+# refresh font cache
+fc-cache -fv
 cd 

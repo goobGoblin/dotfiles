@@ -10,3 +10,7 @@ arguments = ["--bg-scale"]
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.local/share/rofi/themes/material-you/material-colors.rasi' 
+
+[templates.starship]
+input_path = '~/.config/starship/starship-colors-template.toml'
+output_path = '~/.config/starship/starship.toml'

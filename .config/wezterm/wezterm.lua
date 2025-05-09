@@ -12,10 +12,15 @@ config.colors = {
   foreground = '#9F90CF'
 }
 
+-- Specify the font family
+config.font = wezterm.font('JetBrainsMono Nerd Font', { weight = 'Medium' })
+config.font_size = 14.0
 
+-- Ensure proper glyphs render correctly
+config.use_cap_height_to_scale_fallback_fonts = true
 
--- config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 15
+-- For better rendering of some symbols
+config.warn_about_missing_glyphs = false
 
 config.enable_tab_bar = false
 config.window_background_opacity = 0.75

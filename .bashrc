@@ -199,6 +199,9 @@ if [[ -n $TMUX ]]; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
+export STARSHIP_CONFIG="~/.config/starship/starship.toml"
 export PATH="$PATH:$HOME/development/flutter/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+eval "$(starship init bash)"
