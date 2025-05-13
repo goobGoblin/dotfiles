@@ -3,6 +3,8 @@ lvim.transparent_window = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.cmd([[command! ReloadConfig luafile ~/.config/lvim/config.lua]])
+
 -- Add keymappings for Oil
 lvim.keys.normal_mode["-"] = "<CMD>Oil<CR>"  -- Open oil in the current directory
 lvim.keys.normal_mode["<leader>o"] = "<CMD>Oil --float<CR>"  -- Open oil in a floating window
@@ -112,6 +114,20 @@ lvim.plugins = {
   {
     "norcalli/nvim-colorizer.lua",
     lazy = false,
+  },
+  {
+    "chentoast/marks.nvim",
+    opts = {
+      default_mappings = true,
+      builtin_marks = { ".", "<", ">", "^" },
+      cyclic = true,
+      sign_priority = { lower=10, upper=15, builtin=8, bookmark=20 },
+      bookmark_0 = {
+        sign = "⚑",
+        virt_text = "Important",
+        annotate = true,
+      },
+    },
   },
 }
 
