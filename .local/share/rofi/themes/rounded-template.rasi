@@ -1,6 +1,6 @@
 @theme "rounded-custom.rasi"
 * {
-    font:   "Roboto 12";
+    font:   "JetBrains Mono Nerd Font Medium 12";
 
     background-color:   transparent;
     text-color:         @fg0;

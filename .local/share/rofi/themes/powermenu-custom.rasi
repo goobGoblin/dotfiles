@@ -1,0 +1,10 @@
+
+@theme "~/.local/share/rofi/themes/material-you/material-colors.rasi"
+* {
+    selected:        @primary-container; /* border color */
+    foreground:      @on-primary-fixed; /* text color */
+    background:      @primary; /* main background color */
+    background-alt:  @secondary; /* secondary background color */
+    active:          @secondary-fixed-dim; /** active background color */
+    urgent:          @error; /* other background color */
+}
