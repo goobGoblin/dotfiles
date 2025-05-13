@@ -3,3 +3,13 @@ name = "tmux config"
 path = "~/dotfiles/.config/tmux"
 startup_command = "lvim tmux.conf"
 preview_command = "bat ~/dotfiles/.config/tmux/tmux.conf"
+
+[[session]]
+name = "lvim config"
+path =  "~/dotfiles/.config/lvim"
+startup_command = "lvim config.lua"
+preview_command =  "bat ~/dotfiles/.config/lvim/config.lua"
+
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles/.config"
