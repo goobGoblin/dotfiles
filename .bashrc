@@ -97,6 +97,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias notes='flatpak run md.obsidian.Obsidian'
 alias android='~/development/android-studio/bin/studio'
+alias ss='export STARSHIP_CONFIG=~/.config/starship/starship.toml'
 
 # Search in zoxide directories with ripgrep and fzf
 fz() {
@@ -199,9 +200,11 @@ if [[ -n $TMUX ]]; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
-export STARSHIP_CONFIG="~/.config/starship/starship.toml"
+
 export PATH="$PATH:$HOME/development/flutter/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.config/rofi:$PATH"
 
 eval "$(starship init bash)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml

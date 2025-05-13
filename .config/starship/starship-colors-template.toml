@@ -1,11 +1,33 @@
-format = '''
-$directory$git_branch$rust$python
-$character'''
-
-palette = 'colors'
+"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+[](color1)\
+$os\
+$username\
+[](bg:color8 fg:color1)\
+$directory\
+[](bg:color9 fg:color8)\
+$git_branch\
+$git_status\
+[](fg:color9 bg:color3)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:color3 bg:color5)\
+$conda\
+[](fg:color5 bg:color2)\
+$time\
+[  ](fg:color2)\
+$cmd_duration\
+$line_break\
+$character"""
 
 [palettes.colors]
-mustard = '#af8700' # example
 color1 = '{{colors.primary_fixed_dim.default.hex}}'
 color2 = '{{colors.on_primary.default.hex}}'
 color3 = '{{colors.on_surface_variant.default.hex}}'
@@ -16,31 +38,120 @@ color7 = '{{colors.surface.default.hex}}'
 color8 = '{{colors.primary.default.hex}}'
 color9 = '{{colors.tertiary.default.hex}}'
 
-# Prompt symbols 
-[character]
-success_symbol = "[🞈](color9 bold)"
-error_symbol = "[🞈](@{error})"
-vicmd_symbol = "[🞈](#f9e2af)"
+[os]
+disabled = false
+style = "bg:color1 fg:color6"
+
+[os.symbols]
+Windows = ""
+Ubuntu = "󰕈"
+Macos = "󰀵"
+
+[username]
+show_always = true
+style_user = "bg:color1 fg:color6"
+style_root = "bg:color1 fg:color6"
+format = '[ $user]($style)'
 
 [directory]
-format = "[](fg:color1 bg:color4)[󰉋](bg:color1 fg:color2)[ ](fg:color1 bg:color4)[$path ](fg:color3 bg:color4)[ ](fg:color4)"
-
+style = "bg:color8 fg:color6"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
-"Music" = " "
+"Music" = "󰝚 "
 "Pictures" = " "
+"Developer" = "󰲋 "
 
 [git_branch]
-format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $branch](fg:color3 bg:color4)[](fg:color4) "
+symbol = ""
+style = "bg:color9"
+format = '[[ $symbol $branch ](fg:color6 bg:color9)]($style)'
 
-[time]
-format = "[](fg:color8 bg:color4)[ ](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5) $time](fg:color3 bg:color4)[](fg:color4) "
-disabled = false
-time_format = "%R" # Hour:Minute Format
+[git_status]
+style = "bg:color9"
+format = '[[($all_status$ahead_behind )](fg:color6 bg:color9)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[java]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version) ](fg:color6 bg:color3)]($style)'
 
 [python]
-format = "[](fg:color8 bg:color4)[${symbol}${version}](bg:color8 fg:color5)[](fg:color8 bg:color4)[(bg:color8 fg:color5)( ${virtualenv})](fg:color3 bg:color4)[](fg:color4) "
-symbol = '🐍'
-# pyenv_version_name = true
-pyenv_prefix = 'venv'
+symbol = ""
+style = "bg:color3"
+format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:color6 bg:color3)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color5"
+format = '[[ $symbol( $context) ](fg:color6 bg:color5)]($style)'
+
+[conda]
+symbol = "   "
+style = "fg:color6 bg:color5"
+format = '[$symbol$environment ]($style)'
+ignore_base = false
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color2"
+format = '[[   $time ](fg:color6 bg:color2)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color8)'
+error_symbol = '[❯](bold fg:color9)'
+vimcmd_symbol = '[❮](bold fg:color8)'
+vimcmd_replace_one_symbol = '[❮](bold fg:color2)'
+vimcmd_replace_symbol = '[❮](bold fg:color2)'
+vimcmd_visual_symbol = '[❮](bold fg:color9)'
+
+[cmd_duration]
+show_milliseconds = true
+format = " in $duration "
+style = "bg:color2"
+disabled = false
+show_notifications = true
+min_time_to_notify = 45000
