@@ -1,0 +1,14 @@
+/* CSS HEX */
+--lavender-web: #DBD6E5ff;
+--fandango: #B34F9Dff;
+--cambridge-blue: #73AD99ff;
+--powder-blue: #9DBAD9ff;
+--pomp-and-power: #836F97ff;
+
+/* CSS HSL */
+--lavender-web: hsla(260, 22%, 87%, 1);
+--fandango: hsla(313, 40%, 51%, 1);
+--cambridge-blue: hsla(159, 26%, 56%, 1);
+--powder-blue: hsla(211, 44%, 73%, 1);
+--pomp-and-power: hsla(270, 16%, 51%, 1);
+
