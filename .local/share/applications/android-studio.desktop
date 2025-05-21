@@ -2,8 +2,8 @@
 Version=2024.3.1
 Type=Application
 Name=Android Studio
-Exec=~/development/android-studio/bin/studio.sh
-Icon=~/development/android-studio/bin/studio.png
+Exec=/home/tofu/development/android-studio/bin/studio.sh
+Icon=/home/tofu/development/android-studio/bin/studio.png
 Comment=Android IDE
 Categories=Development;IDE;
 Terminal=false
