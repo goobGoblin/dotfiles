@@ -129,6 +129,8 @@ lvim.plugins = {
       },
     },
   },
+  {"tpope/vim-surround", event = "VeryLazy"},
+  {"tpope/vim-repeat", event = "VeryLazy"},
 }
 
 require'colorizer'.setup()
