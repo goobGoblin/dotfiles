@@ -2,6 +2,9 @@
 # install matugen
 cargo install matugen
 
+# install pywal
+pipx install pywal16
+
 # add nerd fonts
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts
